@@ -1,0 +1,49 @@
+	<section class="container">
+		<div class="row">
+				<div class="col-md-12">
+
+					<div class="alert alert-secondary" role="alert">
+					   <h5 class="color-default text-center">{$retorno.retorno}</h5>
+					</div>
+				</div>	
+		</div>
+	</section>		
+	<section id="form"><!--form-->
+		<div class="container">	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<div class="login-form"><!--login form-->
+						<h2>Aceder a sua conta</h2>
+						<form action="/login" method="post">
+							<input class="form-control" type="text" name="user" maxlength="60" placeholder="Nº telefone ou email" required="required"/>
+							<input class="form-control" type="password" maxlength="16" name="pass" placeholder="Senha" required="required"/>
+							<button type="submit" class="btn btn-default">Entrar</button>
+
+						</form>
+						<a href="/usuario/recuperarsenha-Cliente" class="btn btn-link"><span class="fa fa-retweet"></span> Recuperar Senha</a>
+					</div><!--/login form-->
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<div class="signup-form"><!--sign up form-->
+						<h2>Criar conta <span>(*obrigatório)</span></h2>
+
+						<form action="/usuario/novo" method="post">
+							<input class="form-control" type="text" name="name" maxlength="30" placeholder="Nome Completo*" required="required"/>
+							<input class="form-control" type="tel" id="numtelefone" maxlength="15" name="tel" placeholder="Nº de Telefone*" required="required"/>
+							<h5 id='verifynum'></h5>
+							<input class="form-control" type="email" name="email" maxlength="60" placeholder="Email"/>
+							<input class="form-control" type="password" id="senha" maxlength="16" name="pass" placeholder="Senha*" required="required"/>
+							<input class="form-control" type="password" id="senha2" maxlength="16" name="pass2" placeholder="Reintroduza a Senha*" required="required"/>
+							<h5 id='verifypass'></h5>
+							<div class="g-recaptcha" data-sitekey="6LcGlt8ZAAAAAJlL8l2FvaD3aESIZD8tOhnemk3I"></div>
+							<p> Ao registar-se estará a concordar com 
+								<a href="/termos" target="new" class=" btn-link">os nossos termos</a>
+							</p> 
+							<button type="submit" id='btn-enviar' class="btn btn-default">Registar</button>
+						</form>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->		
+		

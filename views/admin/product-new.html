@@ -1,0 +1,87 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Produtos</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card card-primary">
+        <div class="card-header with-border">
+          <h3 class="card-title">Novo Produto</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form" action="/config/product/new" method="post" enctype="multipart/form-data">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="description">Descrição</label>
+              <input type="text" class="form-control" id="description" name="description" maxlength="120" required="required">
+            </div>
+             <div class="form-group">
+              <label for="category">Categoria</label>
+              <select class="form-control" id="category" name="category">
+                  {loop="$category"}
+              		<option value="{$value.num}">{$value.category}</option>
+                  {/loop} 
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="price">Preço</label>
+              <input type="number" class="form-control" id="price" name="price" value="0">
+            </div>
+            <div class="form-group">
+              <label for="un">Unidade</label>
+              <select name="un" id="un" class="form-control">
+                <option value="un">UN</option>
+                <option value="cx">CX</option>
+                <option value="lt">LT</option>
+                <option value="kg">KG</option>
+                <option value="sc">SC</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="discount">Desconto</label>
+              <input type="number" class="form-control" id="discount" name="discount" value="0">
+            </div>
+            <div class="form-group">
+               <label for="note">Nota</label>
+               <textarea id="compose-textarea" class="form-control" name="note" style="height: 200px"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="stars">Estrelas</label>
+              <select name="stars" id="stars" class="form-control">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+  	</div>
+  </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+</div>
+<!-- /.content-wrapper -->

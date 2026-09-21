@@ -1,0 +1,49 @@
+
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Produtos</h2>
+						<p class="text-center">Temos disponivel produtos exclusivos para si</p>
+						<div id="fb-root"></div> 
+
+						{loop="$product"}
+						<div class="col-md-3 col-sm-6 col-xs-6 p-0">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="/{$value.img}" alt="" />
+											<h2>AOA <span class="money">{$value.price}</span></h2>
+											<p>{$value.description}</p>
+											<a href="/carrinho/add/{$value.num}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Comprar</a>
+										</div>
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href="#"><i class="fa fa-heart"></i>Lista de desejos</a></li>
+										<li><a href="/produto/{$value.num}"><i class="fa fa-search"></i>Detalhes</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						{/loop}	
+					</div><!--features_items-->
+					<ul class="pagination">
+							{loop="$pages"}
+								<li><a href="{$value.href}">{$value.text}</a></li>
+							{/loop}
+					</ul>
+					<script type="text/javascript">
+                  	$(".pagination-link").click(function(){
+                   
+                        var dest = this.href;
+                        $.ajax({
+                          url:dest,
+                          type: "GET",
+                          data:{"search":''},
+                          success:function(data)
+                          {
+                            $('#ajax-datas').html(data); 
+                          }  
+                        });
+
+                        return false;
+                     });
+              		</script>

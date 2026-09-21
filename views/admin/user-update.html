@@ -1,0 +1,58 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Usuários </h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card">
+        <div class="card-header with-border">
+          <h3 class="card-title">Editar Usuário</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" action="/config/users/{$user.num}" method="post">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" class="form-control" id="name" name="name" maxlength="60" required="required" value="{$user.name}">
+            </div>
+            <div class="form-group">
+              <label for="user">Usuario</label>
+              <input type="text" class="form-control" id="user" name="user" maxlength="30" required="required"  value="{$user.user}">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" maxlength="60" required="required"  value="{$user.email}">
+            </div>
+            <div class="form-group">
+              <label for="tel">Telefone</label>
+              <input type="text" class="form-control" id="tel" name="tel" maxlength="30"  value="{$user.tel}">
+            </div>
+          </div>
+          <!-- /.box-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-block">Salvar alterações</button>
+          </div>
+        </form>
+      </div>
+  	</div>
+  </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+</div>
+<!-- /.content-wrapper -->

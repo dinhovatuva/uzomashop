@@ -1,0 +1,22 @@
+<section class="container">
+    <div class="row">
+    	<br>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+          		<p>Uzomashop é uma plataforma digital angolana que possibilita aos residentes fazer compras de produtos diversos sem ter que se deslocar.</p>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+          	<h3>Missão</h3>
+          	<p>{$company.mission}</p>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+          	<h3>Visão</h3>
+          	<p>{$company.vision}</p>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+          	<h3>Valores</h3>
+          	{loop="$value"}
+          	<p>{$value.value}</p>
+          	{/loop}
+          </div>
+    </div>
+</section>

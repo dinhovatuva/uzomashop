@@ -1,0 +1,83 @@
+    
+    <section class="container">
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="text-center">
+                      <h3 class="color-default text-center">Registo de Vendedor</h3>
+                      <p>Deixe a suas informações no formulário abaixo</p>
+                  
+                </div>
+        </div>  
+    </div>
+  </section>
+    
+    <section class="container">
+        <div class="row">
+          <div class="col-md-7 mb-5">
+            <form action="/contactos" method="post">
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="fname">Nome completo</label>
+                  <input type="text" id="fname" name="name" class="form-control" placeholder="Escreva o seu nome aqui">
+                </div>
+              </div>
+              <div class="row form-group">
+                
+                <div class="col-md-6">
+                  <label class="text-black" for="email">Email</label> 
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Escreva o seu email aqui">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="email">Telefone</label> 
+                  <input type="text" id="tel" name="tel" class="form-control" placeholder="Escreva o seu número aqui" required="required">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Assunto</label> 
+                  <input type="subject" id="subject" name="subject" class="form-control" value="Registo de Vendedor" readonly>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Mensagens</label> 
+                  <textarea id="note" name="note" cols="30" rows="7" class="form-control" placeholder="Escreva a sua mensagem aqui..."></textarea>
+                </div>
+              </div>
+              <div class="g-recaptcha" data-sitekey="6LcGlt8ZAAAAAJlL8l2FvaD3aESIZD8tOhnemk3I"></div>
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Enviar" class="btn btn-primary py-2 px-4 text-white">
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+          <div class="col-md-5"> 
+            <div class="p-4 mb-3 bg-white">
+                  <img src="/img/apoio.png" width="80">
+                  <h4>Contactos</h4>
+                  {loop="$contact"}
+                    <p>
+                      <span {if="$value.description=='tel'"}class='fa fa-phone'{/if}
+                            {if="$value.description=='email'"}class='fa fa-envelope'{/if}
+                            {if="$value.description=='whatsapp'"} class='fa fa-whatsapp'{/if}
+                      ></span> <a {if="$value.description=='tel'"}href="tel:{$value.contact}"{/if}
+                      {if="$value.description=='email'"}href="mailto:{$value.contact}"{/if}
+                      {if="$value.description=='whatsapp'"}href="https://api.whatsapp.com/send?phone={$value.contact}"{/if}
+                      > {$value.contact} </a>
+                    </p>
+                    {/loop}
+            </div>
+            <div class="p-4 mb-3 bg-white">
+                  <h4>Endereço</h4>
+                  <p>{$company.address}</p>
+            </div>
+          </div>
+        </div>
+    
+    </section >

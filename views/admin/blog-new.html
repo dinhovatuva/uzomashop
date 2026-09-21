@@ -1,0 +1,49 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6"><h1 class="m-0 text-dark">Blog</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card">
+        <!-- form start -->
+        <form role="form" action="/config/blog/new" method="post" enctype="multipart/form-data">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="title">Titulo</label>
+              <input type="text" class="form-control" id="title" name="title" maxlength="60" required="required">
+            </div>
+            <div class="form-group">
+              <label for="author">Autor</label>
+              <input type="text" class="form-control" id="author" name="author" maxlength="60" required="required">
+            </div>
+            <div class="form-group">
+               <label for="note">Introdução</label>
+               <textarea id="compose-textarea" class="form-control" name="introduction"  style="height:200px" required="required"></textarea>
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+          </div>
+        </form>
+      </div>
+  	</div>
+          </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+</div>
+<!-- /.content-wrapper -->

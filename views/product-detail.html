@@ -1,0 +1,131 @@
+
+		
+	<section class="container">
+		<div class="row">
+				<div class="col-md-12 text-center ">
+					<div>
+						<br>
+					   <p> </p>
+					   <hr>
+					</div>
+				</div>	
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-sm-12 col-md-12 col-xs-12 padding-right">
+					<div class="features_items"><!--features_items-->
+						
+					    <div class="col-md-5 col-sm-6 col-xs-12">
+							<div class="recommended_items"><!--recommended_items-->
+						
+						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">	
+									<div class="col-sm-12 col-md-12 col-xs-12">
+										<div class="thumbnail">			
+													   <img src="/{$product.img}">	
+										</div>
+									</div>	
+								</div>
+								{loop="$productimg"}
+					            <div class="item ">	
+									<div class="col-sm-12 col-md-12 col-xs-12">
+										<div class="thumbnail">
+					              			<img src="/{$value.img}" width="100%">
+					              		</div>
+					              	</div>
+					            </div>
+					            {/loop}
+								
+							</div>
+							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+								<i class="fa fa-angle-left"></i>
+							  </a>
+							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+								<i class="fa fa-angle-right"></i>
+							  </a>			
+						</div>
+			    </div><!--/recommended_items-->
+					
+					</div>	
+					<div class="col-md-7 col-sm-6 col-xs-12">
+						        <h3>{$product.description}</h3>
+						        <p>{$product.descategory}</p>
+						        <p ><strong class="money">{$product.price}</strong> AKZ</p>
+						        <p >Un: {$product.un}</p>
+						        <p >{$product.note} </p>
+						        <form action="/carrinho/add/{$product.num}/" method="get">
+						        	{loop="$feature"}
+						        		{if="$value.type=='tamanho'"}
+						        			Tamanho: {$value.feature} <input checked type="radio" value=" {$value.feature}" name="tamanho">
+						        		{/if}
+						        	{/loop}<br>
+						        	{loop="$feature"}
+						        		{if="$value.type=='cor'"}
+						        			Cor: {$value.feature} <input checked type="radio" value=" {$value.feature}" name="cor">
+						        		{/if}
+						        	{/loop}<br>
+						        	<input type="submit" class="btn btn-default " value="Adicionar ao carrinho">
+						    	</form>
+					</div>
+					</div><!--features_items-->
+				</div>
+			</div>
+		</div>
+	</section>
+      
+	<section>
+		<div class="container">
+			<div class="row">
+				<hr>
+				<script>
+      						(function(d, s, id) { 
+							var js, fjs = d.getElementsByTagName(s)[0]; 
+							if (d.getElementById(id)) return; js = d.createElement(s); 
+							js.id = id; js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0"; fjs.parentNode.insertBefore(js, fjs); 
+							}(document, 'script', 'facebook-jssdk'));
+                </script> <!-- Your share button code --> 
+				<div class="col-md-12">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Produtos Relacionados</h2>
+						<!--{loop="$pagination"}
+						<div class="col-xs-6 col-sm-4 col-md-3">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+												<a href="/produtos/{$value.num}" title="Ver detalhes">
+													<img src="/{$value.img}" alt="{$value.descricao}" class="img img-responsive">
+												</a>
+											
+											<h2><spna class="money">{$value.preco}</spna> AKZ</h2>
+											<p>{$value.descricao}</p>
+											<p><span class="fa fa-map-marker"></span> {$value.cidade} &nbsp</p>
+											<p><span class="fa fa-briefcase"></span> {$value.nome} &nbsp</p>
+											<a href="/carrinho/add/{$value.num}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar</a>
+											<a href="/produtos/{$value.num}" class="btn btn-default add-to-cart"><i class="fa fa-search"></i>Ver</a>
+										</div>	
+								</div>
+								
+								<div class="choose">
+									<div></div>
+									<ul class="nav nav-pills nav-justified">
+										<li><a class="fb-share-button" data-href="https://www.kikoloonline.com/produtos/{$value.num}" data-layout="icon_link"></a></li>
+										<li><a href="/contactos-denuncia {$value.num}">Denunciar</a></li>
+									</ul>
+								</div>	
+							</div>
+						</div>
+						{/loop}	-->
+					</div><!--features_items-->
+					<ul class="pagination">
+							<!--{loop="$pages"}
+								<li><a href="{$value.href}">{$value.text}</a></li>
+							{/loop}-->
+						</ul>
+				</div>
+			</div>
+		</div>
+	</section>

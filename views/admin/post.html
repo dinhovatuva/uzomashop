@@ -1,0 +1,57 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6"><h1 class="m-0 text-dark">Post do Blog</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card">
+            
+            <div class="card-header">
+              <a href="/config/blog-post/new/{$numblog.numblog}" class="btn btn-primary">Publicar conteúdo</a>
+            </div>
+
+            <div class="card-body no-padding">
+              <table class="table table-bordered table-hover dataTable">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Conteúdo</th>
+                    <th style="width: 140px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$post"}
+                  <tr>
+                    <td>{$value.num}</td>
+                    <td>{$value.content}</td>
+                    <td>
+                      <a href="/config/blog-post/{$value.num}-{$numblog.numblog}/edit" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                      <a href="/config/blog-post/{$value.num}-{$numblog.numblog}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+  	</div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+</div>
+<!-- /.content-wrapper -->

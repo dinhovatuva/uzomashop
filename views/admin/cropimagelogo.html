@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>  
+        <title> Kátia </title> 
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+		    <link rel="stylesheet" href="/assets/admin/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/css/croppie.css" />
+        <link rel="icon" href="/assets/dist/img/logo.ico">
+    </head>  
+<body>  
+  <div class="container text-center" id="formFile">
+    
+			<div class="panel panel-default text-center">
+  				<div class="panel-heading">Carregar Imagem</div>
+  				<div class="panel-body" align="center">
+  					<input type="file" name="upload_image" id="upload_image">
+  					<div id="uploaded_image"></div>
+  				</div>
+  		</div>
+  </div>
+  <div id="uploadimageModal" class="container">
+	   <div class="row">
+      		<div class="col-md-12">
+        		<div class="row">
+              <div class="col-md-12 ">
+                  <button class="btn btn-success btn-block crop_image">Guardar Imagem</button>
+                  <br>
+              </div>
+  					  <div class="col-md-12 text-center">
+                  <img src="/img/bx_loader.gif" style="display:none; width:50px; margin: 0 auto;" id="loader"/>
+						      <div id="image_demo"></div>
+                  
+  					  </div>
+              
+				    </div>
+      		</div>
+    	</div>
+    </div>
+</div>
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/config/company" title="Livros" class="btn btn-primary btn-block">Voltar</a>
+        </div>
+    </div>
+</div>
+<script src="/assets/site/js/jquery.js"></script>
+<script src="/assets/site/js/bootstrap.min.js"></script>
+<script src="/assets/js/croppie.js"></script>
+<script>  
+$(document).ready(function(){
+ 
+  $image_crop = $('#image_demo').croppie({
+    enableExif: true,
+    viewport: {
+      width:556,
+      height:156,
+      type:'square' //circle
+    },
+    boundary:{
+      width:560,
+      height:160
+    }
+  });
+
+  $('#upload_image').on('change', function(){
+    var reader = new FileReader();
+    reader.onload = function (event) {
+      $image_crop.croppie('bind', {
+        url: event.target.result
+      }).then(function(){
+        console.log('jQuery bind complete');
+      });
+    }
+    reader.readAsDataURL(this.files[0]);
+    $('#uploadimageModal').show();
+    $('#formFile').hide();
+  });
+
+  $('.crop_image').click(function(event){
+    
+        
+    $image_crop.croppie('result', {
+      type: 'canvas',
+      size: 'viewport'
+    }).then(function(response){
+      $.ajax({
+        url:"/config/company/img-{$company.num}",
+        type: "POST",
+        data:{"image": response},
+        success:function(data)
+        {
+          $('#uploadimageModal').modal('hide');
+          $('#uploaded_image').html(data);
+          $('#uploadimageModal').hide();
+          $('#formFile').show();
+        },
+        beforeSend: function(){
+                $('#loader').css({display:"block"});
+                },
+              complete: function(){
+                $('#loader').css({display:"none"});
+        }
+      });
+    })
+  });
+
+});  
+</script>
+</body>  
+</html>
+

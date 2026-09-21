@@ -1,0 +1,78 @@
+
+
+	<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<h4>Carrinho de compras</h4>
+			</div>
+			<div class="cart_info table-responsive">
+				<form name="teste" action="/carrinho/update" method="post">
+				<table class="table">
+					<thead>
+						<tr class="cart_menu">
+							<td class="description">Descrição</td>
+							<td >Preço</td>
+							<td >Quantidade</td>
+							<td class="total">Total</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						{loop="$products"}
+						<tr>
+							<td class="cart_description">
+								<p class="text-center">{$value.description}</p>
+							</td>
+							<td class="cart_price">
+								<p class="text-center money">{$value.price}</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+								
+									<input class="form-control" type="number" name="{$value.product}" value="{$value.amount}" autocomplete="off">
+									
+								</div>
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price money">{$value.subtotal}</p>
+							</td>
+							<td class="cart_delete">
+								<a href="carrinho/remove/{$value.product}" onclick="return confirm('Deseja realmente excluir este registro?')">X</a>
+							</td>
+						</tr>
+                       {/loop}
+						
+					</tbody>
+				</table>
+			
+			</div>
+		</div>
+	</section> <!--/#cart_items-->
+
+	<section id="do_action">
+		<div class="container">
+			<div class="row">
+						<div class="col-sm-12 col-xs-12 col-md-12">
+							<ul>
+								<h3>Total: <span class="money">{$vtotal.vtotal}</span> AKZ</h3>
+							</ul>
+						</div>
+						<div class="col-sm-6 col-xs-6 col-md-4">
+							<button type="submit" class="btn btn-success btn-block">
+								Salvar alterações
+							</button>
+					    </div>
+					    <div class="col-sm-6 col-xs-6 col-md-4">
+							<a class="btn btn-danger btn-block" href="carrinho/cancel">Cancelar</a>
+						</div>
+						<div class="col-sm-12 col-xs-12 col-md-4">
+							<a class="btn btn-success btn-block" href="carrinho/finalizar">Finalizar Encomenda</a>
+						</div>
+				
+				</div>
+			</div>
+		</div>
+		</form>
+	</section><!--/#do_action-->
+
+	

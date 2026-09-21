@@ -1,0 +1,73 @@
+
+	<section class="container">
+		<div class="row">
+				<div class="col-md-12">
+					<div>
+					   <h5 class="color-default text-center">{$retorno.retorno}</h5>
+					</div>
+				</div>	
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="left-sidebar">
+						<h2 class="title">Categorias</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+						
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#categorias">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											Ver todas
+										</a>
+									</h4>
+							    </div>
+
+								<div id="categorias" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											{loop="$categoria"}
+									           <li><a href="/produtos?categoria={$value.num}">{$value.category}</a></li>
+									        {/loop}
+									     </ul>
+								    </div>
+								</div>
+							</div>	
+						</div><!--/category-productsr-->
+
+						
+					</div>
+				</div>
+				<img src="/img/bx_loader.gif" style="display:none; width:50px; margin: 0 auto;" id="loader"/>
+				<div id="ajax-datas" class="col-sm-12 col-md-9 col-xs-12"></div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+      	function loaddata(dest){
+          $.ajax({
+            url:dest,
+            type: "GET",
+            success:function(data)
+            {
+              $('#ajax-datas').html(data); 
+            },
+            beforeSend: function(){
+                $('#loader').css({display:"block"});
+                },
+              complete: function(){
+                $('#loader').css({display:"none"});
+            }  
+          });
+
+     	}
+      	loaddata('/produtos/search'+ document.location.search);
+      	
+      	
+    });
+    </script>

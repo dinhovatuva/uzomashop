@@ -1,0 +1,61 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <a href="/config/product/{$num}"><h1 class="m-0 text-dark">Caracteristicas do producto nº {$num}</h1></a>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card">
+            <form action="/config/productfeature/add-{$num}" method="post">
+              <div class="card-header">
+                <select name="type">
+                      <option value="cor" selected="select">Cor</option><option value="tamanho">Tamanho</option>
+                </select>
+                <input type="text" name="feature">
+                <input type="submit" class="btn btn-primary" value="Adicionar">
+              </div>
+            </form>
+            <div class="card-body no-padding">
+              <table class="table table-bordered table-hover dataTable">
+                <thead>
+                  <tr>
+                    <th>Tipo</th>
+                    <th>Caracterisca</th>
+                    <th style="width: 140px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$product"}
+                  <tr>
+                    <td>{$value.type}</td>
+                    <td>{$value.feature}</td>
+                    <td>
+                      <a href="/config/productfeature/{$value.num}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+  	</div>
+  </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+</div>
+<!-- /.content-wrapper -->

@@ -1,0 +1,73 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Novidades</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card">
+            
+            <div class="card-header">
+              <a href="/config/news/new" class="btn btn-primary">Cadastrar novidade</a>
+            </div>
+
+            <div class="card-body p-0">
+              <table class="table table-bordered table-hover dataTable">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Description</th>
+                    <th>Nota</th>
+                    <th>Imagem</th>
+                    <th style="width: 140px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$news"}
+                  <tr>
+                    <td>{$value.num}</td>
+                    <td>{$value.description}</td>
+                    <td>{$value.note}</td>
+                    <td>
+                        <a href="/config/news/img-{$value.num}" class="nav nav-link">
+                          <img src="/{$value.img}"  class="attachment-img" width="100px"/>
+                        </a>
+                    </td>
+                      <td>
+                      <a href="/config/news/{$value.num}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                      <a href="/config/news/{$value.num}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="card-footer clearfix">
+              <ul class="pagination pagination-sm m-0 float-right">
+                {loop="$pages"}
+                <li><a class="page-link" href="{$value.href}">{$value.text}</a></li>
+                {/loop}
+              </ul>
+            </div>
+          </div>
+  	</div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+</div>
+<!-- /.content-wrapper -->

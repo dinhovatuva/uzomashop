@@ -1,0 +1,19 @@
+			
+	<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="signup-form"><!--sign up form-->
+						<h2>Redefinir senha</h2><hr>
+						<p>Digite o código que enviamos ao seu email. Por favor verifique também a caixa de Spam e Lixo se não estiver na caixa de entrada</p>
+						<form action="/usuario/confirmarsenha-{$perfil.perfil}" method="post">
+							<input type="text" name="senha" placeholder="Código de confirmação">
+							<input type="hidden" name="usuario" value="{$usuario.usuario}">
+							<button type="submit" class="btn btn-default">Confirmar</button>
+						</form>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->		
+		

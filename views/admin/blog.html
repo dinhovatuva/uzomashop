@@ -1,0 +1,71 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6"><h1 class="m-0 text-dark">Blog</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card">
+            
+            <div class="card-header">
+              <a href="/config/blog/new" class="btn btn-primary">Escrever Blog</a>
+            </div>
+
+            <div class="card-body no-padding">
+              <table class="table table-bordered table-hover dataTable">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th style="width: 10px">Imagem</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Data</th>
+                    <th>&nbsp;</th>
+                    <th style="width: 140px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$blog"}
+                  <tr>
+                    <td>{$value.num}</td>
+                    <td>
+                      <a href="/config/blog/img-{$value.num}" class="nav nav-link">
+                        <img src="/{$value.img}"  class="attachment-img" width="100px"/>
+                      </a>
+                    </td>
+                    <td>{$value.title}</td>
+                    <td>{$value.author}</td>
+                    <td>{$value.date}</td>
+                    <td>
+                    <a href="/config/blog-post/{$value.num}" class="btn btn-primary ">Postar Conteúdo</a>
+                    </td>
+                    <td>
+                      <a href="/config/blog/{$value.num}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                      <a href="/config/blog/{$value.num}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+  	</div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+</div>
+<!-- /.content-wrapper -->

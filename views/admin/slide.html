@@ -1,0 +1,65 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Slide </h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div classcard="">
+            
+            <div class="card-header">
+              <a href="/config/slide/new" class="btn btn-primary">Cadastrar Slide</a>
+            </div>
+
+            <div class="box-body no-padding">
+              <table class="table table-bordered table-hover dataTable">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Descrição</th>
+                    <th>Imagem</th>
+                    <th style="width: 140px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$slide"}
+                  <tr>
+                    <td>{$value.num}</td>
+                    <td>{$value.description}</td>
+                    <td>
+                      <a href="/config/slide/img-{$value.num}" title="alterar a imagem">
+                        <img src="/{$value.img}"  class="attachment-img" width="100px"/>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="/config/slide/{$value.num}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                      <a href="/config/slide/{$value.num}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+  	</div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

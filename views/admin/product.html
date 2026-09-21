@@ -1,0 +1,93 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Produtos</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card">
+            
+            <div class="card-header">
+              <a href="/config/product/new" class="btn btn-primary">Cadastrar Produto</a>
+              <div class="card-tools">
+                <form action="/config/product">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="search" class="form-control float-right" placeholder="Procurar" value="{$search}">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="card-body no-padding">
+              <table class="table table-bordered table-hover dataTable">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Img principal</th>
+                    <th>Imagens</th>
+                    <th>Caracteristicas</th>
+                    <th style="width: 140px">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$product"}
+                  <tr>
+                    <td>{$value.num}</td>
+                    <td>{$value.description}</td>
+                    <td>{$value.category}</td>
+                    <td>{$value.price}</td>
+                    <td>
+                      <a href="/config/product/img-{$value.num}" class="nav nav-link">
+                        <img src="/{$value.img}"  class="attachment-img" width="100px"/>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="/config/product/verimagens-{$value.num}" class="nav nav-link"> Ver </a>
+                    </td>
+                    <td>
+                      <a href="/config/productfeature/{$value.num}" class="nav nav-link"> Ver </a>
+                    </td>
+                    <td>
+                      <a href="/config/product/{$value.num}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                      <a href="/config/product/{$value.num}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+              <ul class="pagination pagination-sm m-0 float-right">
+                {loop="$pages"}
+                <li><a class="page-link" href="{$value.href}">{$value.text}</a></li>
+                {/loop}
+              </ul>
+            </div>
+          </div>
+  	</div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+</div>
+<!-- /.content-wrapper -->

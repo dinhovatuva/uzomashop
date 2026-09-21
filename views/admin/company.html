@@ -1,0 +1,157 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Configurações</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+      <div class="container-fluid">
+        <div class="row">
+  	<div class="col-md-12">
+  		<div class="card">
+        
+
+          <form role="form" action="/config/company/{$company.num}" method="post" enctype="multipart/form-data">
+          <div class="box-body">
+            <div class="row form-group">
+             <div class="col-md-12 text-center">
+              <label for="name">Logotipo</label>
+                      <a href="/config/company/img-{$company.num}" class="nav nav-link">
+                        <img src="/{$company.img}"  class="attachment-img" width="100px"/>
+                      </a>
+             </div>
+            </div>
+            <div class="row form-group">
+             <div class="col-md-6">
+              <label for="name">Nome</label>
+              <input type="text" class="form-control" id="name" name="name" maxlength="60" value="{$company.name}" required="required">
+             </div>
+             <div class="col-md-6">
+              <label for="address">Endereço</label>
+              <input type="text" class="form-control" id="address" name="address" maxlength="120" value="{$company.address}" required="required">
+             </div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-6">
+               <label for="mission">Missão</label>
+               <textarea id="compose-textarea" class="form-control" name="mission"  style="height:200px" required="required">{$company.mission}</textarea>
+              </div>
+              <div class="col-md-6">
+               <label for="vision">Visão</label>
+               <textarea id="compose-textarea" class="form-control" name="vision"  style="height:200px" required="required">{$company.vision}</textarea>
+              </div>
+            </div>
+             
+          <!-- /.box-body -->
+           <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+           </div>
+          </div>
+        </form>
+            <div class="card-body p-1 m-0">
+              <div class="row">
+               <form action="/config/company-contact/new" method="post">
+                   <div class="col-md-12">
+                          <h4>Contactos</h4>
+                          <div class="row">
+                            <div class="col-md-3">
+                             <label for="description">Descrição</label>
+                             <select name="description" class="form-control">
+                               <option value="tel">telefone</option>
+                               <option value="email">email</option>
+                               <option value="whatsapp">whatsapp</option>
+                             </select>
+                            </div>
+                            <div class="col-md-6">
+                             <label for="contact">contacto</label>
+                             <input type="text" class="form-control" id="contact" name="contact" maxlength="30" required="required">
+                            </div>
+                            <div class="col-md-3">
+                             <label for="contact">&nbsp;</label>
+                             <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+                            </div>
+                      
+                          </div>
+                          <div class="row">
+                          	 <table class="table table-hover dataTable">
+                				<thead>
+                  					<tr>
+                    					
+                    					<th>Descrição</th>
+                    					<th>Contacto</th>
+                                        <th>&nbsp;</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                  {loop="$contact"}
+                  					<tr>
+                    					<td>{$value.description}</td>
+                    					<td>{$value.contact}</td>
+                                        <td><a href="/config/company-contact/{$value.num}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                                        </td>
+                                   </tr>
+                                  {/loop}
+                               </tbody>
+                             </table>
+                          </div>
+                   </div>
+                  </form>
+                   <form action="/config/company-value/new" method="post">
+                   <div class="col-md-12">
+                          <h4>Valores</h4>
+                          <div class="row">
+                            <div class="col-md-6">
+                             <label for="value">Valor</label>
+                             <input type="text" class="form-control" id="value" name="value" maxlength="60" required="required">
+                            </div>
+                            <div class="col-md-6">
+                             <label for="contact">&nbsp;</label>
+                             <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+                            </div>
+                      
+                          </div>
+                          <div class="row">
+                          	 <table class="table table-hover dataTable">
+                				<thead>
+                  					<tr>
+                    					<th>Valor</th>
+                                        <th>&nbsp;</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                  {loop="$value"}
+                  					<tr>
+                    					<td>{$value.value}</td>
+                                        <td><a href="/config/company-value/{$value.num}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                                        </td>
+                                   </tr>
+                                  {/loop}
+                               </tbody>
+                             </table>
+                          </div>
+                   </div>
+                  </form>
+                  
+                  </div>
+            </div>
+          </div>
+        </div>
+            <!-- /.box-body -->
+          
+          </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

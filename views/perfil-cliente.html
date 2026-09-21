@@ -1,0 +1,69 @@
+           
+			<section class="container">
+
+            	<div class="row">
+             		<div class="col-md-12 text-center">
+                  		<img src="/img/customer.png" alt="Imagem de Perfil" class="img img-responsive img-circle" width="200px" style="margin: 5px auto;">
+                      <a href="/fotoperfil/cliente"><i class="fa fa-camera"></i> &nbsp Alterar Foto de Perfil </a>
+                  		<h3>{$customer.name}</h3>
+                  		<p>{$customer.tel}</p> 
+                </div>
+              </div>  
+            
+              <div class="row">
+             		<div class="col-md-12">
+                  <div class="shop-menu pull-right">
+							       <ul>
+								      <li><a href="/usuario/senha"><i class="fa fa-key"></i> Senha</a></li>
+                      <li></li>
+                      <!--<li><a href="/cliente/desativar" onclick="return confirm('Deseja realmente desativar a sua conta?')"><i class="fa fa-power-off"></i>Desativar conta </a></li>-->
+								      <li><a href="/logout/Cliente" onclick="return confirm('Deseja realmente sair?')"><i class="fa fa-power-off"></i> Sair </a></li>
+							       </ul>
+						      </div>
+                </div>
+              </div>
+            
+			</section>
+           
+			<section id="form">
+			  <div class="container">	
+				<div class="row">	
+                   					
+					<div class="col-md-12">	
+ 
+          <div class="signup-form">
+          	  
+          	  <form action="/usuario/atualizar" method="post" enctype="multipart/form-data">
+          	  <div class="col-md-6">
+              		<input type="text" class="form-control" id="name" placeholder="Nome Completo" name="name" maxlength="100" value="{$customer.name}" required="required">
+              		<input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{$customer.email}" maxlength="60">
+                <p></p>
+             	 	<input type="text" class="form-control" id="tel" placeholder="telefone" value="{$customer.tel}" name="tel" maxlength="15">
+              		<input type="text" class="form-control" placeholder="País" value="{$customer.country}" name="country" maxlength="50">
+                  
+              </div>
+              <div class="col-md-6">
+              		<input type="text" class="form-control" placeholder="Provincia" value="{$customer.province}" name="province" maxlength="30">
+              		<input type="text" class="form-control" placeholder="Cidade" value="{$customer.city}" name="city" maxlength="30">
+              		<input type="text" class="form-control" placeholder="Endereço" value="{$customer.address}" name="address" maxlength="60">
+                  <p>* Receber notificações no email </p>
+                  <select name="status_email" class="form-control">
+                      <option value="{$customer.status_email}">{$customer.status_email}</option>
+                      <option value="sim"> sim </option>
+                      <option value="não"> não </option>
+                  </select>
+               </div>
+               <div class="col-md-12">
+            		<button type="submit" class="btn btn-primary">Atualizar</button>
+               </div>
+            </form>	
+							
+                        </div>	
+                        </div>							
+						<div class="col-md-3">
+							
+						</div>
+					</div>
+					
+				</div>
+			</section>
